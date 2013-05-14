@@ -135,6 +135,10 @@ module Rake
         rm_f @tex.ext("aux")
         rm_f @tex.ext("log")
         rm_f @tex.ext("toc")
+        
+        includes.each do |f|
+          rm_f f.ext("aux")
+        end
 
         unless @references.empty? then
           rm_f @tex.ext("bbl")
